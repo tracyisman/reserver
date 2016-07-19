@@ -1,0 +1,11 @@
+$Layout-minWidth: 500px;
+
+.Layout {
+  display: flex;
+  justify-content: center;
+}
+
+.Layout-content {
+  min-width: $Layout-minWidth;
+  text-align: center;
+}

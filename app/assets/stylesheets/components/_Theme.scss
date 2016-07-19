@@ -1,0 +1,18 @@
+$Theme-font-size-small: 12px;
+$Theme-font-size-base: 16px;
+$Theme-font-size-large: 20px;
+$Theme-font-size-huge: 32px;
+
+$font-sizes: (
+  desktop: (
+    small: $Theme-font-size-small,
+    base: $Theme-font-size-base,
+    large: $Theme-font-size-large,
+    huge: $Theme-font-size-huge
+  )
+);
+
+@mixin font-size($size: 'base') {
+  font-size: map-get(map-get($font-sizes, 'desktop'), $size);
+  line-height: map-get(map-get($font-sizes, 'desktop'), $size) + 8px;
+};
