@@ -1,0 +1,23 @@
+.modal
+  input.modal-state id="#{modal_id}" type="checkbox"
+  .modal-window
+    .modal-inner
+      label.modal-close for="#{modal_id}"
+      h1 = t("reservations.new.title", restaurant: restaurant.name)
+      .modal-content
+        = form_for :reservation, url: reservations_path do |form|
+          = form.hidden_field :restaurant_id, value: restaurant.id
+
+          = form.label :name
+          = form.text_field :name
+
+          = form.label :email
+          = form.text_field :email
+
+          = form.label :party_size
+          = form.number_field :party_size
+
+          = form.label :eta
+          = form.date_field :eta
+
+          = form.submit

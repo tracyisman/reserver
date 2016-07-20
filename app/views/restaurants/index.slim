@@ -1,6 +1,13 @@
-.u-pushTopLarge
-h1.Title Restaurants
+.Container.Container--centered
+  h1.Title = t("restaurants.title")
 
-ul
-  - restaurants.each do |restaurant|
-    li = restaurant.name
+  ul
+    - restaurants.each do |restaurant|
+      li.Restaurant
+        .Restaurant-name = restaurant.name
+        - modal_id = "reservation-modal-#{dom_id(restaurant)}"
+        = link_to "#" do
+          = label_tag modal_id do
+            .modal-trigger = t("restaurants.reserve")
+        = render "reservations/new", restaurant: restaurant, modal_id: modal_id
+

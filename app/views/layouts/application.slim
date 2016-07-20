@@ -11,10 +11,7 @@ html lang="en"
     = csrf_meta_tags
   body
     = render "flashes"
-    - if signed_in?
-      = render "refills/navigation"
-    - else
-      .u-pushTopLarge
+    = render "navbar"
     .Layout
       .Layout-content
         = yield

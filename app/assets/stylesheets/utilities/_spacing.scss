@@ -1,5 +1,7 @@
-$base-margin: 20px;
+.u-pushTop {
+  margin-top: $Theme-spacing-base;
+}
 
 .u-pushTopLarge {
-  margin-top: $base-margin * 2;
+  margin-top: $Theme-spacing-base * 2;
 }

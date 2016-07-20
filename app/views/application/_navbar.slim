@@ -1,0 +1,6 @@
+- if signed_in?
+  = render "refills/navigation"
+- else
+  .TopLinks
+    = link_to t("navigation.sign_in"), new_user_session_path, class: "TopLinks-link"
+  .u-pushTop

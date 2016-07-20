@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
+  root to: "restaurants#index"
+
+  devise_for :users
+
+  resources :restaurants, only: [:index]
+  resources :reservations, only: [:create]
+
   namespace :admin do
     resources :restaurants
 
     root to: "restaurants#index"
-  end
-
-  devise_for :users
-
-  authenticate :user do
-    root to: "restaurants#index"
-
-    resources :restaurants, only: [:index]
   end
 end

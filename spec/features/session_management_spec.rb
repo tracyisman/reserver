@@ -9,6 +9,7 @@ RSpec.feature "Session management" do
     click_on user.email
     click_on I18n.t("navigation.log_out")
 
-    expect(current_path).to eq new_user_session_path
+    expect(current_path).to eq root_path
+    expect(page).to have_text I18n.t("navigation.sign_in")
   end
 end

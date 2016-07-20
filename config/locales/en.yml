@@ -4,9 +4,27 @@ en:
       default: "%m/%d/%Y"
       with_weekday: "%a %m/%d/%y"
 
+  flash:
+    reservations:
+      error: "There was an issue with your reservation"
+      success: "Restaurant reserved successfully, check you email for a confirmation"
+
+  mailer:
+    reservation_confirmation:
+      subject: "Someone booked a table at %{restaurant}"
+
   navigation:
     dashboard: "Dashboard"
     log_out: "Log out"
+    sign_in: "Sign in"
+
+  reservations:
+    new:
+      title: "Make a reservation for %{restaurant}"
+
+  restaurants:
+    reserve: "Make a reservation"
+    title: "Restaurants"
 
   time:
     formats:

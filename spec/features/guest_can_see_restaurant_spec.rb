@@ -1,8 +1,7 @@
 require "spec_helper"
 
-RSpec.feature "User can see a restaurant" do
+RSpec.feature "Guest can see a restaurant" do
   scenario "from the restaurant list" do
-    sign_in create(:user)
     restaurant = create(:restaurant)
 
     visit restaurants_path
