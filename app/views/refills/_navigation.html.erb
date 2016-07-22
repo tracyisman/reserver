@@ -9,13 +9,13 @@
         <ul id="js-navigation-menu" class="navigation-menu show">
           <li class="nav-link more"><a href="javascript:void(0)"><%= current_user.email %></a>
             <ul class="submenu">
-              <%# <% if can? :admin, :restaurants %1> %>
+              <% if current_user.owner? %>
                 <li>
                   <%= link_to admin_root_path do %>
                     <%= t("navigation.dashboard") %>
                   <% end %>
                 </li>
-              <%# <% end %1> %>
+              <% end %>
 
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>

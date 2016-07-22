@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class RestaurantDashboard < Administrate::BaseDashboard
+class StarDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,16 +8,9 @@ class RestaurantDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    owner: Field::BelongsTo.with_options(class_name: "User"),
-    stars: Field::HasMany,
+    restaurant: Field::BelongsTo,
+    user: Field::BelongsTo,
     id: Field::Number,
-    name: Field::String,
-    address: Field::Text,
-    description: Field::Text,
-    phone: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    owner_id: Field::Number,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -26,36 +19,31 @@ class RestaurantDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :restaurant,
+    :user,
     :id,
-    :name,
-    :address,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :restaurant,
+    :user,
     :id,
-    :name,
-    :address,
-    :description,
-    :phone,
-    :stars
   ]
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :name,
-    :address,
-    :description,
-    :phone,
+    :restaurant,
+    :user,
   ]
 
-  # Overwrite this method to customize how restaurants are displayed
+  # Overwrite this method to customize how stars are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(restaurant)
-    restaurant.name
-  end
+  # def display_resource(star)
+  #   "Star ##{star.id}"
+  # end
 end
